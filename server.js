@@ -1,4 +1,7 @@
 //REST API demo in Node.js
+
+//npm install express
+//node server.js
 var express = require('express'); // requre the express framework
 var app = express();
 var fs = require('fs'); //require file system object
@@ -20,6 +23,9 @@ var server = app.listen(8080, function(){
 
 
 //Step 1: Create a new user variable
+//(Modified)
+//POST
+//http://localhost:8080/addUser
 var user = {
     "Employee5": {
         "id":5,
@@ -44,6 +50,7 @@ app.post('/addUser', function(req, res){
 
 
 //Endpoint to get a single user by id
+//C+Getting the "Employee" to users
 app.get('/:id', function (req, res) {
     // First retrieve existing user list
     fs.readFile( __dirname + "/" + "server.json", 'utf8', function (err, data) {
@@ -57,6 +64,7 @@ app.get('/:id', function (req, res) {
 
 
   //Code to delete a user by id
+  //Changing the delete data "Employee"
   var id = 3;
   app.delete('/deleteUser', function (req, res) {
      // First retrieve existing users
